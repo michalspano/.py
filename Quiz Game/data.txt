@@ -1,0 +1,10 @@
+house;dom
+dog;pes
+cat;mačka
+tree;strom
+window;okno
+mouse;myš
+table;stôl
+chair;stolička
+book;kniha
+pen;pero
