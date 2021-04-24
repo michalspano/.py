@@ -1,0 +1,10 @@
+dog
+pes
+cat
+mačka
+house
+dom
+page
+strana
+window
+okno
