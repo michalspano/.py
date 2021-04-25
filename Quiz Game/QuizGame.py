@@ -2,6 +2,7 @@ import tkinter
 from random import *
 import tkinter.colorchooser
 import tkinter.messagebox
+import datetime
 
 window = tkinter.Tk()
 window.title("Welcome to my Quiz!")
@@ -45,7 +46,7 @@ def pick_color():
     if color is not None:
         QuizWidgets.label1["bg"], QuizWidgets.radiobutton1["bg"], canvas["bg"], \
             QuizWidgets.radiobutton2["bg"], QuizWidgets.button1["highlightbackground"], \
-            quiz1["bg"] = (color,) * 6
+            quiz1["bg"], QuizWidgets.text_list1["bg"] = (color,) * 7
 
 
 def test_type1():
@@ -73,12 +74,27 @@ def question_pick():
         quiz1.create_text(200, 200, text=data1[question_index], font="Arial 60",
                           tags="word_text")
     else:
+        save_data()
         quiz1.after(200)
         quiz1.update()
         end_var = tkinter.messagebox.showinfo("Congratulations",
                                               f"You made {wrong_count} mistake(s)!")
         if end_var == "ok":
             QuizFunctions.restart()
+
+
+def save_data():
+    with open("high_score.txt", "a") as outputHighScore:
+        time_string = str(datetime.datetime.now())
+        outputHighScore.write(f"{wrong_count};{time_string}\n")
+
+
+def show_high_score():
+    with open("high_score.txt", "r") as inputScore:
+        data = [line.strip().split(";") for line in inputScore]
+
+    for i in range(len(data)):
+        QuizWidgets.text_list1.insert("end", "Mistakes: " + data[i][0] + " " + data[i][1] + "\n")
 
 
 def correct_result(event):
@@ -107,7 +123,7 @@ def main_menu_assets():
 def dismiss_main_menu_elements():
     canvas.destroy()
     QuizWidgets.label1.destroy(), QuizWidgets.radiobutton1.destroy(), QuizWidgets.radiobutton2.destroy()
-    QuizWidgets.button1.destroy()
+    QuizWidgets.button1.destroy(), QuizWidgets.text_list1.destroy()
 
 
 tx = 150
@@ -138,6 +154,10 @@ class QuizWidgets:
                                        value=2, bg=default_color)
     radiobutton2.pack(anchor="center")
 
+    text_list1 = tkinter.Text(heigh=5, width=35, bg=default_color)
+    text_list1.pack(anchor="center")
+    text_list1.config(state="normal")
+
     button1 = tkinter.Button(text="Settings", command=pick_color,
                              highlightbackground=default_color)
     button1.pack(anchor="center")
@@ -154,4 +174,5 @@ class QuizFunctions:
         os.execv(sys.executable, ['python'] + sys.argv)
 
 
+show_high_score()
 window.mainloop()

@@ -1,4 +1,9 @@
 import tkinter
+from datetime import date
+
+today = str(date.today())
+print(today)
+print(type(today))
 
 # canvas = tkinter.Canvas(width=440, height=200, bg="white")
 # canvas.pack()
@@ -211,54 +216,54 @@ import tkinter
 
 # Menu
 
-window = tkinter.Tk()
-window.geometry("500x400")
-window.title("Using a menu")
-canvas = tkinter.Canvas(width=400, height=400)
-canvas.pack()
-
-
-def open_file():
-    pass
-
-
-def save_file():
-    pass
-
-
-def about_program():
-    text1.place(x=100, y=100)
-    button1.place(x=300, y=200)
-
-
-def about_program_close():
-    text1.place_forget()
-    button1.place_forget()
-
-
-menu1 = tkinter.Menu(window)
-window.config(menu=menu1)
-
-menu2 = tkinter.Menu(menu1)
-menu2.add_command(label="Open", command=open_file)
-menu2.add_command(label="Save", command=save_file)
-menu2.add_separator()
-menu2.add_command(label="End", command=window.destroy)
-
-menu1.add_cascade(label="File", menu=menu2)
-
-menu3 = tkinter.Menu(menu2)
-menu3.add_command(label="About the program", command=about_program)
-
-menu1.add_cascade(label="Help", menu=menu3)
-
-text1 = tkinter.Text(height=5, width=42)
-info = "About the program"
-text1.insert("end", info)
-text1.config(state="disabled")
-button1 = tkinter.Button(text="Close", command=about_program_close)
-
-canvas.mainloop()
+# window = tkinter.Tk()
+# window.geometry("500x400")
+# window.title("Using a menu")
+# canvas = tkinter.Canvas(width=400, height=400)
+# canvas.pack()
+#
+#
+# def open_file():
+#     pass
+#
+#
+# def save_file():
+#     pass
+#
+#
+# def about_program():
+#     text1.place(x=100, y=100)
+#     button1.place(x=300, y=200)
+#
+#
+# def about_program_close():
+#     text1.place_forget()
+#     button1.place_forget()
+#
+#
+# menu1 = tkinter.Menu(window)
+# window.config(menu=menu1)
+#
+# menu2 = tkinter.Menu(menu1)
+# menu2.add_command(label="Open", command=open_file)
+# menu2.add_command(label="Save", command=save_file)
+# menu2.add_separator()
+# menu2.add_command(label="End", command=window.destroy)
+#
+# menu1.add_cascade(label="File", menu=menu2)
+#
+# menu3 = tkinter.Menu(menu2)
+# menu3.add_command(label="About the program", command=about_program)
+#
+# menu1.add_cascade(label="Help", menu=menu3)
+#
+# text1 = tkinter.Text(height=5, width=42)
+# info = "About the program"
+# text1.insert("end", info)
+# text1.config(state="disabled")
+# button1 = tkinter.Button(text="Close", command=about_program_close)
+#
+# canvas.mainloop()
 
 # Dialogue Windows
 # import tkinter.messagebox
