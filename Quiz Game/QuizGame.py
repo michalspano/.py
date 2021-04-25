@@ -2,7 +2,7 @@ import tkinter
 from random import *
 import tkinter.colorchooser
 import tkinter.messagebox
-import datetime
+from datetime import datetime
 
 window = tkinter.Tk()
 window.title("Welcome to my Quiz!")
@@ -85,26 +85,28 @@ def question_pick():
 
 def save_data():
     with open("high_score.txt", "a") as outputHighScore:
-        time_string = str(datetime.datetime.now())
+        now = datetime.now()
+        time_string = now.strftime("%m/%d/%Y, %H:%M:%S")
         outputHighScore.write(f"{wrong_count};{time_string}\n")
 
 
 def show_high_score():
     with open("high_score.txt", "r") as inputScore:
         data = [line.strip().split(";") for line in inputScore]
-
-    for i in range(len(data)):
-        QuizWidgets.text_list1.insert("end", "Mistakes: " + data[i][0] + " " + data[i][1] + "\n")
+        if len(data) > 0:
+            for i in range(len(data)):
+                QuizWidgets.text_list1.insert("end", "Mistakes: " + data[i][0] + " " + data[i][1] + "\n")
 
 
 def correct_result(event):
     global wrong_count
     selected = QuizWidgets.listbox1.curselection()
-    if QuizWidgets.listbox1.get(selected) == data2[question_index]:
-        QuizWidgets.listbox1.delete(selected)
-        data1.pop(question_index), data2.pop(question_index)
-    else:
-        wrong_count += 1
+    if selected is not None:
+        if QuizWidgets.listbox1.get(selected[0]) == data2[question_index]:
+            QuizWidgets.listbox1.delete(selected)
+            data1.pop(question_index), data2.pop(question_index)
+        else:
+            wrong_count += 1
     question_pick()
 
 
@@ -162,7 +164,6 @@ class QuizWidgets:
                              highlightbackground=default_color)
     button1.pack(anchor="center")
     listbox1 = tkinter.Listbox()
-    listbox1.bind("<Double-Button-1>", correct_result)
 
 
 class QuizFunctions:
@@ -175,4 +176,5 @@ class QuizFunctions:
 
 
 show_high_score()
+QuizWidgets.listbox1.bind("<Double-Button-1>", correct_result)
 window.mainloop()
