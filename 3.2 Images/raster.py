@@ -17,7 +17,7 @@ canvas.update()
 rgb = []
 i = 0
 while i < 3:
-    rgb.append(int(input(" ")))
+    rgb.append(int(input("")))
     i += 1
 
 for y in range(height):
