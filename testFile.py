@@ -1,16 +1,9 @@
-# Randomize list elements
+# Counter
+from collections import Counter
 
-from random import *
+output = []
+n = [1, 2, 3, 2, 2]
+for key, value in Counter(n).items():
+    output.append([key, value])
 
-n = list(range(10))
-n2 = n
-
-print(f"Default list: {n}")
-
-for i in range(len(n)):
-    index = randrange(10)
-    n[i], n[index] = n[index], n[i]
-print(f"Shuffled list: {n}")
-
-shuffle(n2)
-print(f"Shuffled list: {n2}")
+print(output)
