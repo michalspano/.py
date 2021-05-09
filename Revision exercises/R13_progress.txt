@@ -1,8 +1,4 @@
-Game progress: number of guesses 7, winning number: 15
-Guess n. 1: 1
-Guess n. 2: 2
-Guess n. 3: 3
-Guess n. 4: 5
-Guess n. 5: 10
-Guess n. 6: 16
-Guess n. 7: 15
+Game progress: number of guesses 3, winning number: 5
+Guess n. 1: 4
+Guess n. 2: 6
+Guess n. 3: 5

@@ -9,6 +9,7 @@ def pick_number(_range):
         # Exits the program if input requirements are not fulfilled
 
     r = [int(number) for number in _range.split()]
+    r.sort()
     return randint(r[0], r[1])
 
 
