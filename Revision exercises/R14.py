@@ -58,7 +58,7 @@ def guess(start, number_progress):
     return end_time - start_time
 
 
-_min, _max = 10, 1000  # Specified range of values
+_min, _max = 10, 10 ** 10  # Specified range of values
 guess_count = int()
 chosen_number = pick_number(_min, _max)
 time = guess(True, [_min, _max])
