@@ -1,0 +1,2 @@
+pencolor purple, line 100
+repeat 10;2, left 20, line 20
