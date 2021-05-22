@@ -1,2 +1,2 @@
-pencolor purple, line 100
-repeat 10;2, left 20, line 20
+pencolor purple, penwidth 2, line 20, right 45
+repeat 25;2, left 5, line 3

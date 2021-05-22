@@ -33,22 +33,20 @@ def click(event, mode):
     if len(picked) > 0:
         picked = picked[0]
 
-        #  Determines color under the cursor
-        current_color = canvas.gettags(picked)[0]
-
         #  Left-click for column
         if mode == "left":
-            column_ID = int(picked) // 10
+            column_ID = (int(picked) - 1) // 10
 
             for i in range(column_ID * 10, (column_ID * 10) + 10):
-                canvas.itemconfig(i + 1, tags=current_color)
+                current_tag = (i + 1)
+                change_colors(current_tag)
 
         else:  # Right-click for row
             row_ID = (y - 10) // 30 + 1
 
             for i in range(10):
-                x = row_ID + (i * 10)
-                canvas.itemconfig(x, tags=current_color)
+                current_tag = row_ID + (i * 10)
+                change_colors(current_tag)
 
         configure_colors()
         progress_save()
@@ -62,28 +60,34 @@ def diagonal_event(event):
 
     #  Configures diagonal 1 (1-100)
     if event.keysym == "Up":
-        color = canvas.gettags(1)[0]  # Color of the first circle of the diagonal
         j = 0
         for i in range(0, 100, 10):
             j += 1
-            tag = i + j
-            canvas.itemconfig(tag, tags=color)
+            current_tag = i + j
+            change_colors(current_tag)
 
     #  Configures diagonal 1 (10-91)
     elif event.keysym == "Down":
-        color = canvas.gettags(10)[0]  # Color of the first circle of the diagonal
-        for tag in range(10, 100, 9):
-            canvas.itemconfig(tag, tags=color)
+        for current_tag in range(10, 100, 9):
+            change_colors(current_tag)
 
     progress_save()
     configure_colors()
 
 
+#  Function to change colors cyclically
+def change_colors(par):
+    color_tag = canvas.gettags(par)[0]
+    current_color_index = color_order.index(color_tag) + 1  # Gets the index of current color + 1
+    if current_color_index >= len(color_order):
+        current_color_index = 0  # If the last index -> repeat
+    canvas.itemconfig(par, tags=color_order[current_color_index])
+
+
 #  Changes colors according to individual tags
 def configure_colors():
     for ID in canvas.find_all():
-        color = canvas.gettags(ID)
-        color = color[0]
+        color = canvas.gettags(ID)[0]
         canvas.itemconfig(ID, fill=color)
 
 
@@ -125,7 +129,8 @@ def end():
 
 
 move_count = int()
-draw_circles(["red", "green", "blue"], 30)
+color_order = ["red", "green", "blue"]  # Default colors for cyclical change
+draw_circles(color_order, 30)
 #  Lambda function for 2 different events
 canvas.bind("<Button-1>", lambda event: click(event, "left"))
 canvas.bind("<Button-2>", lambda event: click(event, "right"))

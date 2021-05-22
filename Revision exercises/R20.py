@@ -6,7 +6,7 @@ canvas.pack()
 
 def robot(x, y):
     canvas.create_oval(x - 5, y - 5, x + 5, y + 5,
-                       fill="red", outline="")
+                       fill="red", outline="", tags="robot")
 
 
 def entry_action():
@@ -98,6 +98,14 @@ def add_line(length):
     coords = coords[2:]
 
 
+def export():
+    canvas.delete("robot")
+    from datetime import datetime
+    time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    canvas.postscript(file=f"export{time}.eps")
+    exit(f"Your image was saved at/ export{time}.eps")
+
+
 coords = [int(canvas["height"]) / 2] * 2
 angle_deg, _pen_width, _pen_color = 180, 1, "blue"
 robot(200, 200)
@@ -109,4 +117,6 @@ entry1.pack()
 entry_button = tkinter.Button(text="Done", width=5, height=2,
                               command=entry_action)
 entry_button.pack()
+export_button = tkinter.Button(text="Export", command=export)
+export_button.pack()
 canvas.mainloop()
