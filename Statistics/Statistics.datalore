@@ -1,0 +1,381 @@
+{
+  "version":"1.0",
+  "data":{
+    "sheets":[
+      {
+        "name":"Statistics I",
+        "blocks":[
+          {
+            "type":"MD",
+            "text":"# **Statistics - Mathematics**\n[GitHub](https:\/\/github.com\/michalspano\/Py\/tree\/master\/Statistics)\n\n\n* [Arithmetic mean](#**Arithmetic-mean**)\n* [Geometric mean](#**Geometric-mean**)\n* [Harmonic mean](#**Harmonic-mean**)\n* [Mode](#**Mode**)\n* [Median](#**Median**)\n* [Range](#**Range**)\n* [Variance](#**Variance**)\n* [Standard deviation](#**Standard-deviation**)\n* [Ouput](#**Output**)",
+            "outputs":[
+              
+            ],
+            "language":"MARKDOWN",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          },
+          {
+            "type":"MD",
+            "text":"Round up calculations via `round_n` parameter.",
+            "outputs":[
+              
+            ],
+            "language":"MARKDOWN",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          },
+          {
+            "type":"CODE",
+            "text":"round_n = int(input(\"Round up [decimal places]: \"))",
+            "outputs":[
+              {
+                "stdout":"Round up [decimal places]:  3\n",
+                "stderr":"",
+                "outputReprs":[
+                  
+                ],
+                "displayData":[
+                  
+                ]
+              }
+            ],
+            "language":"PYTHON",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          },
+          {
+            "type":"MD",
+            "text":"# **Data set**\n* Data to input via `load_data(file)` from `data_set1.txt`.\n* Parameter `data_set` with all data elements.\n* Visualize data elements via `pandas`.",
+            "outputs":[
+              
+            ],
+            "language":"MARKDOWN",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          },
+          {
+            "type":"CODE",
+            "text":"def load_data(file):\n    loaded_data = []\n    with open(file, \"r\") as input_data:\n        for line in input_data:\n            loaded_data.append(int(line.strip()))\n    return loaded_data\n\n\ndata_set = load_data(\"data_set1.txt\")\n\nimport pandas as pd\ndf_data = {\"x\": data_set}\ndata_frame = pd.DataFrame.from_dict(df_data)\ndata_frame.shift()[1:]",
+            "outputs":[
+              {
+                "stdout":"",
+                "stderr":"",
+                "outputReprs":[
+                  
+                ],
+                "displayData":[
+                  {
+                    "html":"<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n<\/style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th><\/th>\n      <th>x<\/th>\n    <\/tr>\n  <\/thead>\n  <tbody>\n    <tr>\n      <th>1<\/th>\n      <td>302.0<\/td>\n    <\/tr>\n    <tr>\n      <th>2<\/th>\n      <td>310.0<\/td>\n    <\/tr>\n    <tr>\n      <th>3<\/th>\n      <td>312.0<\/td>\n    <\/tr>\n    <tr>\n      <th>4<\/th>\n      <td>310.0<\/td>\n    <\/tr>\n    <tr>\n      <th>5<\/th>\n      <td>313.0<\/td>\n    <\/tr>\n    <tr>\n      <th>6<\/th>\n      <td>318.0<\/td>\n    <\/tr>\n    <tr>\n      <th>7<\/th>\n      <td>305.0<\/td>\n    <\/tr>\n    <tr>\n      <th>8<\/th>\n      <td>309.0<\/td>\n    <\/tr>\n    <tr>\n      <th>9<\/th>\n      <td>310.0<\/td>\n    <\/tr>\n  <\/tbody>\n<\/table>\n<\/div>",
+                    "type":"html"
+                  }
+                ]
+              }
+            ],
+            "language":"PYTHON",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          },
+          {
+            "type":"MD",
+            "text":"# **Arithmetic mean** \n`arithmetic_mean(arr)` returns `X_a`.\n$$A=\\frac{1}{n} \\sum_{i-1}^{n} x_{i}=\\frac{x_{1}+x_{2}+\\cdots+x_{n}}{n}$$",
+            "outputs":[
+              
+            ],
+            "language":"MARKDOWN",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          },
+          {
+            "type":"CODE",
+            "text":"def arithmetic_mean(arr):\n    x_a = int()\n    for i in range(len(arr)):\n        x_a += arr[i]\n    return round(x_a \/ len(arr), round_n)\n\n\nX_a = arithmetic_mean(data_set)",
+            "outputs":[
+              {
+                "stdout":"",
+                "stderr":"",
+                "outputReprs":[
+                  
+                ],
+                "displayData":[
+                  
+                ]
+              }
+            ],
+            "language":"PYTHON",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          },
+          {
+            "type":"MD",
+            "text":"# **Geometric mean**\n`geometric_mean(arr)` returns `X_g`.\n$$G = \\left(\\prod _{i=1}^{n}x_{i}\\right)^{\\frac {1}{n}}={\\sqrt[{n}]{x_{1}x_{2}\\cdots x_{n}}}$$",
+            "outputs":[
+              
+            ],
+            "language":"MARKDOWN",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          },
+          {
+            "type":"CODE",
+            "text":"def geometric_mean(arr):\n    x_g = arr[0]\n    for i in range(1, len(arr)):\n        x_g *= arr[i]\n    return round(x_g ** (len(arr) ** - 1), round_n)\n\n\nX_g = geometric_mean(data_set)",
+            "outputs":[
+              {
+                "stdout":"",
+                "stderr":"",
+                "outputReprs":[
+                  
+                ],
+                "displayData":[
+                  
+                ]
+              }
+            ],
+            "language":"PYTHON",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          },
+          {
+            "type":"MD",
+            "text":"# **Harmonic mean**\n`harmonic_mean(arr)` returns `X_h`.\n$$H=\\frac{n}{\\frac{1}{x_{1}}+\\frac{1}{x_{2}}+\\cdots+\\frac{1}{x_{n}}}=\\frac{n}{\\sum_{i=1}^{n} \\frac{1}{x_{i}}}=\\left(\\frac{\\sum_{i=1}^{n} x_{i}^{-1}}{n}\\right)^{-1}$$",
+            "outputs":[
+              
+            ],
+            "language":"MARKDOWN",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          },
+          {
+            "type":"CODE",
+            "text":"def harmonic_mean(arr):\n    x_h = float()\n    for i in range(len(arr)):\n        x_h += (1 \/ arr[i])\n    return round(len(arr) \/ x_h, round_n)\n\n\nX_h = harmonic_mean(data_set)",
+            "outputs":[
+              {
+                "stdout":"",
+                "stderr":"",
+                "outputReprs":[
+                  
+                ],
+                "displayData":[
+                  
+                ]
+              }
+            ],
+            "language":"PYTHON",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          }
+        ]
+      },
+      {
+        "name":"Statistics II",
+        "blocks":[
+          {
+            "type":"MD",
+            "text":"# **Mode**\n`mode(arr)` returns `mod_x`.",
+            "outputs":[
+              
+            ],
+            "language":"MARKDOWN",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          },
+          {
+            "type":"CODE",
+            "text":"def mode(arr):\n    from collections import Counter\n    frequency = []\n    for key, value in Counter(arr).items():\n        value_set = (value, key)\n        frequency.append(value_set)\n\n    max_frequency = max(frequency)\n    return max_frequency[1]\n\n\nmod_x = mode(data_set)",
+            "outputs":[
+              {
+                "stdout":"",
+                "stderr":"",
+                "outputReprs":[
+                  
+                ],
+                "displayData":[
+                  
+                ]
+              }
+            ],
+            "language":"PYTHON",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          },
+          {
+            "type":"MD",
+            "text":"# **Median**\n`median(arr)` returns `med_x`.",
+            "outputs":[
+              
+            ],
+            "language":"MARKDOWN",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          },
+          {
+            "type":"CODE",
+            "text":"def median(arr):\n    r_arr = len(arr)\n    ordered_arr = sorted(arr)\n    index = int(r_arr \/ 2)\n\n    if r_arr % 2 == 0:\n        return round((ordered_arr[index - 1] + ordered_arr[index]) \/ 2, round_n)\n    else:\n        return round(index)\n\n\nmed_x = median(data_set)",
+            "outputs":[
+              {
+                "stdout":"",
+                "stderr":"",
+                "outputReprs":[
+                  
+                ],
+                "displayData":[
+                  
+                ]
+              }
+            ],
+            "language":"PYTHON",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          },
+          {
+            "type":"MD",
+            "text":"# **Range**\n`range_function(arr)` returns `range_x`.\n$${R}={x}_{\\max }-{x}_{\\min }$$",
+            "outputs":[
+              
+            ],
+            "language":"MARKDOWN",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          },
+          {
+            "type":"CODE",
+            "text":"def range_function(arr):\n    return min(arr), max(arr)\n\n\nr = range_function(data_set)\nrange_x = f\"<{r[0]};{r[1]}>\"",
+            "outputs":[
+              {
+                "stdout":"",
+                "stderr":"",
+                "outputReprs":[
+                  
+                ],
+                "displayData":[
+                  
+                ]
+              }
+            ],
+            "language":"PYTHON",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          }
+        ]
+      },
+      {
+        "name":"Statistics III",
+        "blocks":[
+          {
+            "type":"MD",
+            "text":"# **Variance**\n`variance_function(arr, avg)` returns `v_x`.\n$$s={\\frac{1}{n} \\sum_{i=1}^{n}\\left(x_{i}-\\bar{x}\\right)^{2}}$$",
+            "outputs":[
+              
+            ],
+            "language":"MARKDOWN",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          },
+          {
+            "type":"CODE",
+            "text":"def variance_function(arr, avg):\n    v_sum = float()\n    for i in range(len(arr)):\n        v_sum += (arr[i] - avg) ** 2\n    return round(v_sum \/ len(arr), round_n)\n\n\nv_x = variance_function(data_set, X_a)",
+            "outputs":[
+              {
+                "stdout":"",
+                "stderr":"",
+                "outputReprs":[
+                  
+                ],
+                "displayData":[
+                  
+                ]
+              }
+            ],
+            "language":"PYTHON",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          },
+          {
+            "type":"MD",
+            "text":"# **Standard deviation**\n`standard_deviation(v)` returns `s`.\n$$s=\\sqrt{\\frac{1}{n} \\sum_{i=1}^{n}\\left(x_{i}-\\bar{x}\\right)^{2}}$$",
+            "outputs":[
+              
+            ],
+            "language":"MARKDOWN",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          },
+          {
+            "type":"CODE",
+            "text":"def standard_deviation(v):\n    return round(v ** (1 \/ 2), round_n)\n\n\ns = standard_deviation(v_x)",
+            "outputs":[
+              {
+                "stdout":"",
+                "stderr":"",
+                "outputReprs":[
+                  
+                ],
+                "displayData":[
+                  
+                ]
+              }
+            ],
+            "language":"PYTHON",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          }
+        ]
+      },
+      {
+        "name":"Output",
+        "blocks":[
+          {
+            "type":"MD",
+            "text":"# **Output**\nDisplay calculations using `pandas`.",
+            "outputs":[
+              
+            ],
+            "language":"MARKDOWN",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          },
+          {
+            "type":"CODE",
+            "text":"import pandas as pd\n\nmethods = [\"Arithmetic mean\", \"Geometric mean\", \"Harmonic mean\", \"Mode\", \"Median\", \"Variance\", \"Standard deviation\"]\nvalues = [X_a, X_g, X_h, mod_x, med_x, v_x, s]\ndata = {'Method': methods, 'Calculation': values}\ndf = pd.DataFrame.from_dict(data)\ndf.shift()[1:]",
+            "outputs":[
+              {
+                "stdout":"",
+                "stderr":"",
+                "outputReprs":[
+                  
+                ],
+                "displayData":[
+                  {
+                    "html":"<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n<\/style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th><\/th>\n      <th>Method<\/th>\n      <th>Calculation<\/th>\n    <\/tr>\n  <\/thead>\n  <tbody>\n    <tr>\n      <th>1<\/th>\n      <td>Arithemtic mean<\/td>\n      <td>309.800<\/td>\n    <\/tr>\n    <tr>\n      <th>2<\/th>\n      <td>Geometric mean<\/td>\n      <td>309.773<\/td>\n    <\/tr>\n    <tr>\n      <th>3<\/th>\n      <td>Harmonic mean<\/td>\n      <td>309.746<\/td>\n    <\/tr>\n    <tr>\n      <th>4<\/th>\n      <td>Mode<\/td>\n      <td>310.000<\/td>\n    <\/tr>\n    <tr>\n      <th>5<\/th>\n      <td>Median<\/td>\n      <td>310.000<\/td>\n    <\/tr>\n    <tr>\n      <th>6<\/th>\n      <td>Variance<\/td>\n      <td>16.760<\/td>\n    <\/tr>\n  <\/tbody>\n<\/table>\n<\/div>",
+                    "type":"html"
+                  }
+                ]
+              }
+            ],
+            "language":"PYTHON",
+            "inputCollapsed":false,
+            "outputCollapsed":false
+          }
+        ]
+      }
+    ],
+    "packages":[
+      {
+        "name":"counter",
+        "version":"1.0.0",
+        "source":"PIP"
+      },
+      {
+        "name":"tkinterx",
+        "version":"0.0.9",
+        "source":"PIP"
+      },
+      {
+        "name":"tk",
+        "version":"0.1.0",
+        "source":"PIP"
+      }
+    ],
+    "kernelType":"IPYTHON",
+    "language":"PYTHON"
+  }
+}
