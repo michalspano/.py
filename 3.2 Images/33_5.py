@@ -1,5 +1,5 @@
 import tkinter
-
+import os
 canvas = tkinter.Canvas()
 canvas.pack()
 
@@ -96,6 +96,8 @@ def export():
 
 
 export_button = tkinter.Button(text="Export", command=export)
+dir_list = os.listdir("pictures")[1:]
+print("Options: " + ", ".join(dir_list))
 img_sprite = sprite(input("File: "))
 configure()
 canvas.mainloop()
