@@ -130,3 +130,9 @@ dmypy.json
 
 # Idea
 .idea
+
+# Ignore school related tests
+Tests
+
+# Ignore default binary files
+.DS_Store

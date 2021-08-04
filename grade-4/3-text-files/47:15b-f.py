@@ -86,4 +86,4 @@ c.create_text(45,65,text="yes")
 c.create_text(45,115,text="no")
 c.create_text(45,165,text="idk")
 c.bind("<1>", click)
-
+c.mainloop()
