@@ -23,7 +23,7 @@ On average, a Python developer earns $119,082 per year in the US. Additionally, 
 ### macOS / Linux
 
 ```shell
-$ pyhton3 $INPUT_FILE
+$ python3 $INPUT_FILE
 ```
 
 ### Windows
