@@ -3,6 +3,11 @@
 import os
 import qrcode
 
+"""
+'qrcode'
+Source: https://pypi.org/project/qrcode/
+"""
+
 # Using command line arguments
 from sys import argv, exit
 
@@ -33,6 +38,13 @@ def check_command_line_arg(args):
 
 
 def qr_code_generator(link):
+
+    """
+    import qrcode
+    img = qrcode.make('Some data here')
+    type(img)  # qrcode.image.pil.PilImage
+    img.save("some_file.png")
+    """
 
     # Create qr-code
     img = qrcode.make(link)
