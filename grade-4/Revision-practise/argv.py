@@ -1,6 +1,6 @@
 # Import standard os module
 # Detect command line arguments
-from os import exit, argv
+from sys import argv, exit
 
 
 def detect_commands():
