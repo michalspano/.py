@@ -20,10 +20,9 @@ def detect_commands():
 
 # Create main function
 def main():
-    if detect_commands():
-        exit(0)
-    else:
-        exit(1)
+
+    # Return int with os.exit
+    exit(0) if detect_commands() else exit(1)
 
 
 if __name__ == '__main__':
