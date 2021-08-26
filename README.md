@@ -184,7 +184,7 @@ def main():
     else:
 
         # Prompt the user with incorrect usage message
-        print("Usage: python[3] $LINK")
+        print(f"Usage: python[3] {argv[0]} $LINK")
         exit(1)
 
 
@@ -224,7 +224,7 @@ if __name__ == '__main__':
 #### Execution
 
 ```shell
-$ python $LINK
+$ python qr-code.py $LINK
 ```
 
 `$LINK` passed as a command-line argument.

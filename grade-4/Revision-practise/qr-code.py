@@ -27,7 +27,7 @@ def main():
     else:
 
         # Prompt the user with incorrect usage message
-        print("Usage: python[3] $LINK")
+        print(f"Usage: python[3] {argv[0]} $LINK")
         exit(1)
 
 
