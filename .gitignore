@@ -136,3 +136,7 @@ Tests
 
 # Ignore default binary files
 .DS_Store
+
+# Ignore unused 'Statistics modules'
+grade-4/statistics/Statistics.datalore
+grade-4/statistics/Statistics.py
