@@ -140,3 +140,6 @@ Tests
 # Ignore unused 'Statistics modules'
 grade-4/statistics/Statistics.datalore
 grade-4/statistics/Statistics.py
+
+# Ignore private
+grade-4/Revision-practise/dna.py
