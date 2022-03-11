@@ -19,19 +19,7 @@ class CLI:
             print (u"\u001b[0m")
 
 
-    def loading():
-        print ("Loading...")
-        for i in range(0, 100):
-            time.sleep(0.1)
-            width: int = (i + 1) // 4
-            load: str = str(i + 1) + "%"
-            bar: str = "[" + "#" * width + " " * (25 - width) + "]"
-            sys.stdout.write(u"\u001b[1000D" +  bar + load)
-            sys.stdout.flush()
-        print()
-
 # Invoke the functions
 CLI.display_colors(), print()
 CLI.display_colors_bg()
-CLI.loading()
 
