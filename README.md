@@ -1,4 +1,6 @@
-## `'.py'` – a `Python` Repository
+<h2 align="center"><code>'.py'</code> – a <code>Python</code> Repository</h2>
+
+<p align="center"><img src="https://img.freepik.com/free-icon/snakes_318-368381.jpg" width=125></p>
 
 This repository contains programs, projects (and much more) suitable for any __`Python` enthusiast.__
 
