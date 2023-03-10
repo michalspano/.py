@@ -1,9 +1,9 @@
-# .py --- A Python Repositery
+## `'.py'` – a `Python` Repository
 
-This repositery contains programs, projects and much more for suitable for any
-__Python enthusiast.__
+This repository contains programs, projects (and much more) suitable for any __`Python` enthusiast.__
 
-## About Python
+## About `Python`
+
 Python is a high-level programming language used for general-purpose software engineering. It’s a server side language – which means it runs on the server, and is responsible for processing the logic behind user inputs, interacting with databases and other servers, etc.
 
 Initially developed in the late 1980’s by Guido Van Rossum, Python has been around for decades alongside other server side languages like Java and C. Van Rossum modeled Python after the English language, eliminating unnecessary syntax to make it easier to read and write than other programming languages.
@@ -12,14 +12,22 @@ Python is an open-sourced language, and in recent years has increased in popular
 
 And yes, the rumors are true. Python is named after the British comedy group Monty Python. Which in our opinion makes it all the more awesome. [[1]][WIKI]
 
-## Why Learn Python?
+## Hmm, why `Python`?
 
 Just to name a few of its most common uses, Python is used in Data Mining, Data Science, AI, Machine Learning, Web Development, Web Frameworks, Embedded Systems, Graphic Design applications, Gaming, Network development, Product development, Rapid Application Development, Testing, Automation Scripting, the list goes on.
 
 Python is used as an easier and more efficiently-written alternative to languages that perform similar functionalities like C, R, and Java. Therefore Python is growing in popularity as the primary language for many applications.
 
 On average, a Python developer earns $119,082 per year in the US. Additionally, the average salaries from 2017 to 2020 show that Python ranks consistently within the top 3 highest paying languages. [[2]][WIKI]
+
+## My Story With `Python`
+
+The first time I encountered a `Python` program was, approximately, in 2017. I was in my first year of high school, and, `Python`, happened to be the language of instruction for the `Computer Science` (in Slovak, equivalent to _'Informatika'_). At first, I felt highly overwhelmed by the dynamics of the types in `Python`, having had some experience with __statically-typed__ languages. The first modules were mostly about the `Tkinter` library; in fact, much of the contents of this repository are based on the lab exercises gathered throughout the five years program of my high school. Nevertheless, my fascination with `Python` grew rapidly, and, nowadays, it's a tool I reckon indispensable. It's a tool I can use for scripting, or, virtually, it's applicable to (mostly) any domain. Still, there are some draughts, and, in my opinion, the most significant one is the lack of a __static type system__ (yes, `mypy` is powerful, but it's not a full-fledged __type system__), __performance__ (I shall stress that twice – __performance__), etc 
+
+Nevertheless, `Python` is a language I can recommend to anyone, and, in fact, I do.
+
 ## Execution
+
 ### macOS / Linux
 
 ```shell
@@ -31,9 +39,15 @@ $ python3 $INPUT_FILE
 $ python $INPUT_FILE
 ```
 
-`$INPUT_FILE` represents the local path of the desired `.py` file.
+`$INPUT_FILE` represents the __local path__ of the desired `.py` file.
 
 ## Highlights
+
+In this section, one can find a list of some interesting programs written in `Python` (as part of this repository).
+
+<details>
+    <summary>Click to expand</summary>
+
 ### Python - Shell Script Integration
 
 ```python
@@ -228,6 +242,12 @@ $ python qr-code.py $LINK
 ```
 
 `$LINK` passed as a command-line argument.
+
+</details>
+
+### Contributing
+
+If you have any suggestions or improvements, feel free to open an issue or a pull request.
 
 <!-- LINKS AND REFS -->
 [WIKI]: https://codingnomads.co/why-learn-python/
