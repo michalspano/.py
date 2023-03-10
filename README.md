@@ -1,4 +1,4 @@
-<h2 align="center"><code>'.py'</code> – a <code>Python</code> Repository</h2>
+<h3 align="center"><code>'.py'</code> – a <code>Python</code> Repository</h3>
 
 <p align="center"><img src="https://img.freepik.com/free-icon/snakes_318-368381.jpg" width=125></p>
 
