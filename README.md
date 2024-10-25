@@ -5,6 +5,15 @@ early as ~2017 in high school).
 > Yes, I didn't know about `git` back then. Using nested folder worked just
 > fine for a 14-year-old me.
 
+### What's inside?
+
+- `cool-programs`: miscellaneous programs and scripts that I find interesting
+  through the time.
+- `intro-to-python`: a collection of simple programs and scripts for beginners
+  focused on fundamental concepts of programming.
+- `playground`: a 'sandbox' for testing new ideas and prototyping possible
+  solutions to problems.
+
 ## My Story With `Python`
 
 The first time I encountered a `Python` program was approximately in 2017. I
